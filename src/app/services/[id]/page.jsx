@@ -1,7 +1,6 @@
-import Link from "next/link";
 import React from "react";
 
-export default function ServicesPage() {
+export default function ServiceDetailPage({ params }) {
   const data = [
     {
       _id: "60d21b4667d0d8992e610c85",
@@ -25,18 +24,14 @@ export default function ServicesPage() {
         "FitLife offers personalized fitness training and nutrition plans to help you achieve your health and wellness goals.",
     },
   ];
+  const id = params.id;
+  const singleData = data.find((d) => d._id == id)
   return (
     <div>
-      <p className="font-bold text-3xl">Services Page</p>
-      {data.map((d) => {
-        return (
-          <div>
-            <Link href={`/services/${d._id}`}>
-              <img src={d.service_image} />
-            </Link>
-          </div>
-        );
-      })}
+      <h1>ServiceDetailPage</h1>
+      <p>ID : {id}</p>
+      <p>{singleData.service_name}</p>
+      <img src={singleData.service_image} />
     </div>
   );
 }
