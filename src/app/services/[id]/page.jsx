@@ -24,14 +24,18 @@ export default function ServiceDetailPage({ params }) {
         "FitLife offers personalized fitness training and nutrition plans to help you achieve your health and wellness goals.",
     },
   ];
-  const id = params.id;
-  const singleData = data.find((d) => d._id == id)
+  const id = params?.id;
+  const singleData = data.find((d) => d._id == id);
   return (
-    <div>
-      <h1>ServiceDetailPage</h1>
-      <p>ID : {id}</p>
-      <p>{singleData.service_name}</p>
-      <img src={singleData.service_image} />
-    </div>
+    <>
+      <h1 className="font-bold text-3xl mb-4">ServiceDetailPage</h1>
+      <div className="flex items-center">
+        <div className="max-w-[400px] space-y-4">
+          <p>ID : {id}</p>
+          <p>{singleData.service_name}</p>
+          <img src={singleData.service_image} />
+        </div>
+      </div>
+    </>
   );
 }
