@@ -1,3 +1,4 @@
+import NotFoundPage404 from "@/app/not-found";
 import React from "react";
 
 export default function ServiceDetailPage({ params }) {
@@ -26,16 +27,24 @@ export default function ServiceDetailPage({ params }) {
   ];
   const id = params?.id;
   const singleData = data.find((d) => d._id == id);
-  return (
-    <>
-      <h1 className="font-bold text-3xl mb-4">ServiceDetailPage</h1>
-      <div className="flex items-center">
-        <div className="max-w-[400px] space-y-4">
-          <p>ID : {id}</p>
-          <p>{singleData.service_name}</p>
-          <img src={singleData.service_image} />
+  if (singleData) {
+    return (
+      <>
+        <h1 className="font-bold text-3xl mb-4">ServiceDetailPage</h1>
+        <div className="flex items-center">
+          <div className="max-w-[400px] space-y-4">
+            <p>ID : {id}</p>
+            <p>{singleData.service_name}</p>
+            <img src={singleData.service_image} />
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  } else {
+    return (
+      <>
+        <NotFoundPage404 />
+      </>
+    );
+  }
 }
