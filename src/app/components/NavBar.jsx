@@ -17,6 +17,9 @@ export default function NavBar() {
               <Link href="/services">SERVICES</Link>
             </li>
             <li>
+              <Link href="/posts">POSTS</Link>
+            </li>
+            <li>
               <Link href="/about">ABOUT</Link>
             </li>
           </ul>
