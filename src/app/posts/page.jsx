@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const getPosts = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await res.json();
@@ -10,9 +12,10 @@ export default async function Posts() {
     <div className="grid grid-cols-4 gap-8">
       {posts.map((singleData) => {
         return (
-          <div key={singleData._id}>
+          <div key={singleData.id}>
             <p>{singleData.title}</p>
             <p>{singleData.body}</p>
+            <Link href={`/posts/${singleData.id}`}>Details</Link>
           </div>
         );
       })}
