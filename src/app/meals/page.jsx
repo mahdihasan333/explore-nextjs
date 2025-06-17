@@ -6,6 +6,7 @@ export default function MealsPage() {
   return (
     <div>
       <p>testing...</p>
+      <p>this is a p tag</p>
     </div>
   )
 }
